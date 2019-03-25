@@ -4,10 +4,12 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
-public class MainApp {
+public class ZMainApp {
 
 	public static void main(String[] args) {
 		Display display = new Display();
@@ -24,6 +26,13 @@ public class MainApp {
 		button.setBounds(10, 10, 75, 30);
 		Text text1 = new Text(shell, SWT.NONE | SWT.BORDER);// 带边框
 		text1.setBounds(10, 50, 70, 25);
+
+		Menu mainMenu = new Menu(shell, SWT.BAR);
+		shell.setMenuBar(mainMenu);
+		MenuItem fileItem = new MenuItem(mainMenu, SWT.CASCADE);
+		fileItem.setText("文件(&F)");
+		MenuItem helpItem = new MenuItem(mainMenu, SWT.CASCADE);
+		helpItem.setText("帮助(&H)");
 
 		shell.open();
 		while (!shell.isDisposed()) {
